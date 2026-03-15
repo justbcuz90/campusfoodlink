@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "name": "Protein Breakfast Bowl",
+    "category": "breakfast",
+    "price": 8.5,
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=80",
+    "description": "Eggs, grains, greens, and avocado for a strong start."
+  },
+  {
+    "id": 2,
+    "name": "Greek Yogurt Parfait",
+    "category": "breakfast",
+    "price": 6.25,
+    "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=1200&q=80",
+    "description": "Greek yogurt, berries, granola, and honey."
+  },
+  {
+    "id": 3,
+    "name": "Grilled Chicken Wrap",
+    "category": "lunch",
+    "price": 9.25,
+    "image": "https://images.unsplash.com/photo-1604908176997-431fa7f1b2d9?auto=format&fit=crop&w=1200&q=80",
+    "description": "Fresh wrap with grilled chicken, greens, and house sauce."
+  },
+  {
+    "id": 4,
+    "name": "Turkey Sandwich Combo",
+    "category": "lunch",
+    "price": 7.95,
+    "image": "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=1200&q=80",
+    "description": "Turkey sandwich served with fruit and chips."
+  },
+  {
+    "id": 5,
+    "name": "Campus Pasta Plate",
+    "category": "dinner",
+    "price": 10.75,
+    "image": "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=1200&q=80",
+    "description": "Creamy pasta with herbs and roasted vegetables."
+  },
+  {
+    "id": 6,
+    "name": "Rice Bowl Deluxe",
+    "category": "dinner",
+    "price": 11.5,
+    "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=80",
+    "description": "Rice bowl with grilled vegetables, protein, and sauce."
+  },
+  {
+    "id": 7,
+    "name": "Fruit Cup",
+    "category": "snacks",
+    "price": 3.5,
+    "image": "https://images.unsplash.com/photo-1564093497595-593ca1649f9b?auto=format&fit=crop&w=1200&q=80",
+    "description": "Fresh seasonal fruit prepared daily."
+  },
+  {
+    "id": 8,
+    "name": "Iced Coffee",
+    "category": "drinks",
+    "price": 2.95,
+    "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80",
+    "description": "Cold brewed coffee with optional milk or syrup."
+  }
+]

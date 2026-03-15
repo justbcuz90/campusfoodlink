@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CampusFoodLink</title>
+  <meta name="description" content="CampusFoodLink helps students discover meals, add items to cart, review food, and simulate checkout." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home">CampusFoodLink</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#menu">Menu</a>
+        <a href="#reviews">Feedback</a>
+        <a href="#checkout">Checkout</a>
+      </nav>
+      <div class="nav-actions">
+        <button id="loginToggle" class="button button-outline button-small">Student - login</button>
+        <button id="vendorToggle" class="button button-outline button-small">Vendor- login</button>
+        <button id="cartToggle" class="button button-small">Cart <span style="padding-right: 10px;"> </span> <span id="cartCount"> 0</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <p class="eyebrow">Student meals made simple</p>
+        <h1>Fresh campus meals with filtering, cart, checkout, and reviews.</h1>
+        <p class="hero-copy">
+          CampusFoodLink is a modern front-end concept for discovering meals on campus,
+          logging in, adding food to cart, and submitting reviews.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="#menu">Explore Menu</a>
+          <a class="button button-ghost" href="#reviews">Submit a Review</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-gap" id="about">
+      <div class="container two-col">
+        <div>
+          <p class="eyebrow">About CampusFoodLink</p>
+          <h2>Built for busy student life</h2>
+          <p>
+            This project uses HTML, CSS, JavaScript, and JSON data to create a practical
+            front-end food ordering experience. Menu items load from a JSON file and can be filtered by category.
+          </p>
+          <p>
+            Login is handled with browser storage for demo use. Cart items persist in local storage,
+            and checkout calculates totals instantly in the browser.
+          </p>
+        </div>
+        <div class="info-panel">
+          <div class="info-card">
+            <span class="tag">Project features</span>
+            <h3>Menu, cart, login, checkout, review form</h3>
+            <p>Designed to serve as a strong starter structure for a fuller CampusFoodLink build.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-gap" id="menu">
+      <div class="container">
+        <div class="section-heading center">
+          <p class="eyebrow">Campus menu</p>
+          <h2>Find meals fast</h2>
+          <p>Use filters to view breakfast, lunch, dinner, snacks, or drinks.</p>
+        </div>
+
+        <div class="filter-bar" id="filterBar">
+          <button class="filter-button active" data-category="all">All</button>
+          <button class="filter-button" data-category="breakfast">Breakfast</button>
+          <button class="filter-button" data-category="lunch">Lunch</button>
+          <button class="filter-button" data-category="dinner">Dinner</button>
+          <button class="filter-button" data-category="snacks">Snacks</button>
+          <button class="filter-button" data-category="drinks">Drinks</button>
+        </div>
+
+        <div id="menuGrid" class="menu-grid"></div>
+      </div>
+    </section>
+
+    <section class="section-gap review-section" id="reviews">
+      <div class="container review-layout">
+        <div>
+          <p class="eyebrow">Student feedback</p>
+          <h2>Submit a review</h2>
+          <p>Share your experience with your name, email, and review text.</p>
+        </div>
+
+        <form id="reviewForm" class="review-form card-panel">
+          <label>
+            <span>Name</span>
+            <input type="text" id="reviewName" required placeholder="Your name" />
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" id="reviewEmail" required placeholder="Your email" />
+          </label>
+          <label>
+            <span>Review</span>
+            <textarea id="reviewText" rows="5" required placeholder="Write your review"></textarea>
+          </label>
+          <button type="submit" class="button">Submit Review</button>
+        </form>
+      </div>
+
+    </section>
+
+    <section class="section-gap checkout-section" id="checkout">
+      <div class="container two-col checkout-layout">
+        <div>
+          <p class="eyebrow">Checkout</p>
+          <h2>Review your order</h2>
+          <div id="checkoutItems" class="checkout-items"></div>
+        </div>
+
+        <div class="card-panel checkout-summary">
+          <h3>Order Summary</h3>
+          <div class="summary-row">
+            <span>Items</span>
+            <strong id="summaryCount">0</strong>
+          </div>
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <strong id="summarySubtotal">$0.00</strong>
+          </div>
+          <div class="summary-row">
+            <span>Service Fee</span>
+            <strong id="summaryFee">$1.99</strong>
+          </div>
+          <div class="summary-row total">
+            <span>Total</span>
+            <strong id="summaryTotal">$1.99</strong>
+          </div>
+
+          <form id="checkoutForm" class="checkout-form">
+            <label>
+              <span>Student Name</span>
+              <input type="text" id="checkoutName" required placeholder="Log in as a student" readonly />
+            </label>
+            <label>
+              <span>Student Email</span>
+              <input type="email" id="checkoutEmail" required placeholder="Log in as a student" readonly />
+            </label>
+            <label>
+              <span>Pickup Location</span>
+              <select id="checkoutLocation" required>
+                <option value="">Select pickup option</option>
+                <option value="Drive-thru">Drive-thru</option>
+                <option value="Side-entry">Side-entry</option>
+                <option value="Main entry">Main entry</option>
+              </select>
+            </label>
+            <p id="checkoutAccountHint" class="status-message">Log in as a student to use your meal plan at checkout.</p>
+            <button id="checkoutSubmit" type="submit" class="button">Complete Checkout</button>
+          </form>
+          <p id="checkoutMessage" class="status-message" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <aside id="loginModal" class="modal hidden" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+    <div class="modal-card">
+      <button id="closeLogin" class="close-button" aria-label="Close">&times;</button>
+      <p class="eyebrow">Student access</p>
+      <h2 id="loginTitle">Student Login</h2>
+      <p class="modal-copy">Use the demo student account to sign in on the main page.</p>
+      <p class="credential-note"><strong>Email:</strong> student@campusfoodlink.com<br><strong>Password:</strong> student123</p>
+      <form id="loginForm" class="login-form">
+        <label>
+          <span>Email</span>
+          <input type="email" id="loginEmail" required placeholder="Student email" />
+        </label>
+        <label>
+          <span>Password</span>
+          <input type="password" id="loginPassword" required placeholder="Student password" />
+        </label>
+        <button type="submit" class="button">Login</button>
+      </form>
+      <p id="loginStatus" class="status-message" role="status" aria-live="polite"></p>
+    </div>
+  </aside>
+
+  <aside id="cartDrawer" class="cart-drawer hidden" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="cart-panel">
+      <div class="cart-header">
+        <h2 id="cartTitle">Your Cart</h2>
+        <button id="closeCart" class="close-button" aria-label="Close">&times;</button>
+      </div>
+      <div id="cartItems" class="cart-items"></div>
+      <div class="cart-footer">
+        <div class="summary-row total">
+          <span>Total</span>
+          <strong id="cartTotal">$0.00</strong>
+        </div>
+        <a href="#checkout" id="goCheckout" class="button">Go to Checkout</a>
+      </div>
+    </div>
+  </aside>
+
+  <aside id="vendorModal" class="modal hidden" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="vendorTitle">
+    <div class="modal-card">
+      <button id="closeVendor" class="close-button" aria-label="Close">&times;</button>
+      <p class="eyebrow">Vendor access</p>
+      <h2 id="vendorTitle">Vendor Login</h2>
+      <p class="modal-copy">Use the demo vendor account to open the Manage Menu page.</p>
+      <p class="credential-note"><strong>Email:</strong> vendor@campusfoodlink.com<br><strong>Password:</strong> vendor123</p>
+      <form id="vendorForm" class="login-form">
+        <label>
+          <span>Email</span>
+          <input type="email" id="vendorEmail" required placeholder="Vendor email" />
+        </label>
+        <label>
+          <span>Password</span>
+          <input type="password" id="vendorPassword" required placeholder="Vendor password" />
+        </label>
+        <button type="submit" class="button">Open Manage Menu</button>
+      </form>
+      <p id="vendorStatus" class="status-message" role="status" aria-live="polite"></p>
+    </div>
+  </aside>
+
+  <aside id="reviewThanksModal" class="modal hidden" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="reviewThanksTitle">
+    <div class="modal-card">
+      <button id="closeReviewThanks" class="close-button" aria-label="Close">&times;</button>
+      <p class="eyebrow">Feedback received</p>
+      <h2 id="reviewThanksTitle">Thank you for submitting your feedback.</h2>
+      <p>We appreciate your response.</p>
+      <button id="reviewThanksConfirm" class="button">Close</button>
+    </div>
+  </aside>
+
+  <aside id="checkoutThanksModal" class="modal hidden" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="checkoutThanksTitle">
+    <div class="modal-card">
+      <button id="closeCheckoutThanks" class="close-button" aria-label="Close">&times;</button>
+      <p class="eyebrow">Order confirmed</p>
+      <h2 id="checkoutThanksTitle">Checkout complete.</h2>
+      <p>Please check email for receipt.</p>
+      <div class="hero-actions">
+        <button id="viewOrderStatus" class="button button-outline">View Order Status</button>
+        <button id="checkoutThanksConfirm" class="button">Close</button>
+      </div>
+    </div>
+  </aside>
+
+  <script src="./script.js"></script>
+</body>
+</html>

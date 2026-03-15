@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manage Menu | CampusFoodLink</title>
+  <meta name="description" content="Vendor menu management for CampusFoodLink." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="./index.html">CampusFoodLink</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#menuManager">Menu Items</a>
+        <a href="#menuFormCard">Add Item</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="button button-outline button-small" href="./index.html">Back to Site</a>
+        <button id="vendorLogout" class="button button-small">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero manage-hero">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <p class="eyebrow">Vendor workspace</p>
+        <h1>Manage Menu</h1>
+        <p class="hero-copy">
+          Add new menu items, update prices, replace food images, and publish changes directly to the customer menu.
+        </p>
+      </div>
+    </section>
+
+    <section class="section-gap manage-section">
+      <div class="container manage-layout">
+        <section id="menuManager" class="card-panel manage-list-panel">
+          <div class="manage-header">
+            <div>
+              <p class="eyebrow">Current menu</p>
+              <h2>Vendor items</h2>
+            </div>
+            <button id="resetFormButton" class="button button-outline button-small" type="button">Add New Item</button>
+          </div>
+          <div id="manageMenuGrid" class="manage-menu-grid"></div>
+        </section>
+
+        <section id="menuFormCard" class="card-panel manage-form-panel">
+          <p class="eyebrow">Edit details</p>
+          <h2 id="manageFormTitle">Add Menu Item</h2>
+          <form id="manageMenuForm" class="checkout-form">
+            <input type="hidden" id="menuItemId" />
+            <input type="hidden" id="menuImageCurrent" />
+            <label>
+              <span>Item Name</span>
+              <input type="text" id="menuItemName" required placeholder="Meal name" />
+            </label>
+            <label>
+              <span>Category</span>
+              <select id="menuItemCategory" required>
+                <option value="breakfast">Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="dinner">Dinner</option>
+                <option value="snacks">Snacks</option>
+                <option value="drinks">Drinks</option>
+              </select>
+            </label>
+            <label>
+              <span>Price</span>
+              <input type="number" id="menuItemPrice" min="0" step="0.01" required placeholder="0.00" />
+            </label>
+            <label>
+              <span>Description</span>
+              <textarea id="menuItemDescription" rows="5" required placeholder="Describe the item"></textarea>
+            </label>
+            <label>
+              <span>Image URL</span>
+              <input type="url" id="menuItemImageUrl" placeholder="https://example.com/meal.jpg" />
+            </label>
+            <label>
+              <span>Or Upload Image</span>
+              <input type="file" id="menuItemImageFile" accept="image/*" />
+            </label>
+            <div class="image-preview-wrap">
+              <img id="menuImagePreview" class="image-preview hidden" alt="Menu item preview" />
+            </div>
+            <div class="manage-form-actions">
+              <button type="submit" class="button">Save Item</button>
+              <button id="cancelEditButton" type="button" class="button button-outline">Cancel</button>
+            </div>
+          </form>
+          <p id="manageMenuStatus" class="status-message" role="status" aria-live="polite"></p>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="./manage-menu.js"></script>
+</body>
+</html>
