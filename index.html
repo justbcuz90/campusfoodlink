@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FoodFull</title>
-  <meta name="description" content="FoodFull helps students discover meals, add items to cart, review food, and simulate checkout." />
+  <meta name="description" content="FoodFull helps students discover meals, browse the campus menu, and review checkout details." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,16 +14,15 @@
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="brand" href="#home">FoodFull</a>
-      <nav class="site-nav" aria-label="Primary">
+      <nav class="site-nav">
         <a href="#about">About</a>
         <a href="#menu">Menu</a>
         <a href="#reviews">Feedback</a>
         <a href="#checkout">Checkout</a>
       </nav>
       <div class="nav-actions">
-        <button id="loginToggle" class="button button-outline button-small">Student - login</button>
-        <button id="vendorToggle" class="button button-outline button-small">Vendor- login</button>
-        <button id="cartToggle" class="button button-small">Cart <span style="padding-right: 10px;"> </span> <span id="cartCount"> 0</span></button>
+        <button id="studentLoginButton" class="button button-outline button-small" type="button">Student Login</button>
+        <button id="vendorLoginButton" class="button button-small" type="button">Vendor Login</button>
       </div>
     </div>
   </header>
@@ -33,14 +32,14 @@
       <div class="hero-overlay"></div>
       <div class="container hero-content">
         <p class="eyebrow">Student meals made simple</p>
-        <h1>Fresh campus meals with filtering, cart, checkout, and reviews.</h1>
+        <h1>Fresh campus meals</h1>
         <p class="hero-copy">
-          FoodFull is a modern front-end concept for discovering meals on campus,
-          logging in, adding food to cart, and submitting Feedback.
+          FoodFull is a polished front-end concept for discovering campus meals,
+          checking student account details, and reviewing a simple checkout flow.
         </p>
         <div class="hero-actions">
           <a class="button" href="#menu">Explore Menu</a>
-          <a class="button button-ghost" href="#reviews">Submit Feedback</a>
+          <a class="button button-ghost" href="#reviews">Share Feedback</a>
         </div>
       </div>
     </section>
@@ -50,20 +49,32 @@
         <div>
           <p class="eyebrow">About FoodFull</p>
           <h2>Built for busy student life</h2>
+          <h4>Project Name</h4>
+          <p><b>CampusFoodLink</b>, but website is <b>FoodFull</b>.</p>
+          <h4>
+            Meet the Team
+          </h4>
           <p>
-            This project uses HTML, CSS, JavaScript, and JSON data to create a practical
-            front-end food ordering experience. Menu items load from a JSON file and can be filtered by category.
+            FoodFull is developed by Abdul & Allycia.
+          </p>
+          <h4>
+            Experience
+          </h4>
+          <p>
+            we have combined knowledge in reactjs, nextjs, and nodejs,python, html, css and vanilla javascript.
           </p>
           <p>
-            Login is handled with browser storage for demo use. Cart items persist in local storage,
-            and checkout calculates totals instantly in the browser.
+            Menu items load from a JSON file and can be filtered by category. Login, cart, and checkout are handled in the browser for demo use.
+          </p>
+          <p>
+            This goal for this project, is to use HTML, CSS, JavaScript, JSON, and local browser storage data to create a food ordering experience.
           </p>
         </div>
         <div class="info-panel">
           <div class="info-card">
             <span class="tag">Project features</span>
-            <h3>Menu, cart, login, checkout, review form</h3>
-            <p>Designed to serve as a strong starter structure for a fuller FoodFull build.</p>
+            <h3>Menu, account overview, vendor page, and checkout preview</h3>
+            <p>Validates user before taking to account page or manage menu.</p>
           </div>
         </div>
       </div>
@@ -73,20 +84,89 @@
       <div class="container">
         <div class="section-heading center">
           <p class="eyebrow">Campus menu</p>
-          <h2>Find meals fast</h2>
-          <p>Use filters to view breakfast, lunch, dinner, snacks, or drinks.</p>
+          <h2>Featured meals</h2>
+          <p>A quick look at popular breakfast, lunch, dinner, snack, and drink options.</p>
         </div>
 
-        <div class="filter-bar" id="filterBar">
-          <button class="filter-button active" data-category="all">All</button>
-          <button class="filter-button" data-category="breakfast">Breakfast</button>
-          <button class="filter-button" data-category="lunch">Lunch</button>
-          <button class="filter-button" data-category="dinner">Dinner</button>
-          <button class="filter-button" data-category="snacks">Snacks</button>
-          <button class="filter-button" data-category="drinks">Drinks</button>
-        </div>
+        <div class="menu-grid">
+          <article class="menu-card">
+            <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=900&q=80" alt="Breakfast sandwich">
+            <div class="menu-card-body">
+              <span class="tag">Breakfast</span>
+              <h3>Breakfast Sandwich</h3>
+              <p>Eggs, cheddar, and crispy turkey bacon on a toasted brioche bun.</p>
+              <div class="price-row">
+                <strong class="price">$6.50</strong>
+                <span>Morning favorite</span>
+              </div>
+            </div>
+          </article>
 
-        <div id="menuGrid" class="menu-grid"></div>
+          <article class="menu-card">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=900&q=80" alt="Chicken harvest bowl">
+            <div class="menu-card-body">
+              <span class="tag">Lunch</span>
+              <h3>Chicken Harvest Bowl</h3>
+              <p>Grilled chicken, quinoa, roasted vegetables, and lemon herb dressing.</p>
+              <div class="price-row">
+                <strong class="price">$9.95</strong>
+                <span>Fresh and filling</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="menu-card">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=900&q=80" alt="Margherita flatbread">
+            <div class="menu-card-body">
+              <span class="tag">Dinner</span>
+              <h3>Margherita Flatbread</h3>
+              <p>Stone-baked flatbread topped with basil, mozzarella, and tomato sauce.</p>
+              <div class="price-row">
+                <strong class="price">$11.25</strong>
+                <span>Campus classic</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="menu-card">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80" alt="Fruit and yogurt cup">
+            <div class="menu-card-body">
+              <span class="tag">Snack</span>
+              <h3>Fruit and Yogurt Cup</h3>
+              <p>Greek yogurt layered with berries, granola, and local honey.</p>
+              <div class="price-row">
+                <strong class="price">$4.75</strong>
+                <span>Quick energy</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="menu-card">
+            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=900&q=80" alt="Iced coffee">
+            <div class="menu-card-body">
+              <span class="tag">Drink</span>
+              <h3>Vanilla Iced Coffee</h3>
+              <p>Cold brewed coffee finished with vanilla cream and a smooth espresso kick.</p>
+              <div class="price-row">
+                <strong class="price">$3.95</strong>
+                <span>All-day boost</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="menu-card">
+            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=80" alt="Garden wrap">
+            <div class="menu-card-body">
+              <span class="tag">Lunch</span>
+              <h3>Garden Wrap</h3>
+              <p>Spinach tortilla filled with hummus, greens, tomato, cucumber, and feta.</p>
+              <div class="price-row">
+                <strong class="price">$8.40</strong>
+                <span>Light and crisp</span>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -94,27 +174,27 @@
       <div class="container review-layout">
         <div>
           <p class="eyebrow">Student feedback</p>
-          <h2>Submit a review</h2>
-          <p>Share your experience with your name, email, and review text.</p>
+          <h2>How can we Improve?</h2>
+          <p>Share your thoughts on how we can enhance your experience.</p>
         </div>
 
-        <form id="reviewForm" class="review-form card-panel">
+        <form class="review-form card-panel">
           <label>
             <span>Name</span>
-            <input type="text" id="reviewName" required placeholder="Your name" />
+            <input type="text" required placeholder="Your name" />
           </label>
           <label>
             <span>Email</span>
-            <input type="email" id="reviewEmail" required placeholder="Your email" />
+            <input type="email" required placeholder="Your email" />
           </label>
           <label>
-            <span>Review</span>
-            <textarea id="reviewText" rows="5" required placeholder="Write your review"></textarea>
+            <span>Feedback</span>
+            <textarea rows="5" required placeholder="Write your feedback"></textarea>
           </label>
-          <button type="submit" class="button">Submit Review</button>
+          <button type="submit" class="button">Submit Feedback</button>
+          <p class="status-message">Form submission still in progress no action on submit.</p>
         </form>
       </div>
-
     </section>
 
     <section class="section-gap checkout-section" id="checkout">
@@ -122,136 +202,111 @@
         <div>
           <p class="eyebrow">Checkout</p>
           <h2>Review your order</h2>
-          <div id="checkoutItems" class="checkout-items"></div>
+          <div class="checkout-items">
+            <article class="checkout-item">
+              <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80" alt="Chicken harvest bowl">
+              <div>
+                <h3>Chicken Harvest Bowl</h3>
+                <p>1 item selected for pickup at the student center.</p>
+              </div>
+              <strong class="price">$9.95</strong>
+            </article>
+            <article class="checkout-item">
+              <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=400&q=80" alt="Vanilla iced coffee">
+              <div>
+                <h3>Vanilla Iced Coffee</h3>
+                <p>1 drink added to complete the order.</p>
+              </div>
+              <strong class="price">$3.95</strong>
+            </article>
+          </div>
         </div>
 
         <div class="card-panel checkout-summary">
           <h3>Order Summary</h3>
           <div class="summary-row">
             <span>Items</span>
-            <strong id="summaryCount">0</strong>
+            <strong>2</strong>
           </div>
           <div class="summary-row">
             <span>Subtotal</span>
-            <strong id="summarySubtotal">$0.00</strong>
+            <strong>$13.90</strong>
           </div>
           <div class="summary-row">
             <span>Service Fee</span>
-            <strong id="summaryFee">$1.99</strong>
+            <strong>$1.99</strong>
           </div>
           <div class="summary-row total">
             <span>Total</span>
-            <strong id="summaryTotal">$1.99</strong>
+            <strong>$15.89</strong>
           </div>
 
-          <form id="checkoutForm" class="checkout-form">
+          <form class="checkout-form">
             <label>
               <span>Student Name</span>
-              <input type="text" id="checkoutName" required placeholder="Log in as a student" readonly />
+              <input type="text" placeholder="Student name" />
             </label>
             <label>
               <span>Student Email</span>
-              <input type="email" id="checkoutEmail" required placeholder="Log in as a student" readonly />
+              <input type="email" placeholder="student@foodfull.com" />
             </label>
             <label>
               <span>Pickup Location</span>
-              <select id="checkoutLocation" required>
-                <option value="">Select pickup option</option>
-                <option value="Drive-thru">Drive-thru</option>
-                <option value="Side-entry">Side-entry</option>
-                <option value="Main entry">Main entry</option>
+              <select>
+                <option>Main entry</option>
+                <option>Side-entry</option>
+                <option>Drive-thru</option>
               </select>
             </label>
-            <p id="checkoutAccountHint" class="status-message">Log in as a student to use your meal plan at checkout.</p>
-            <button id="checkoutSubmit" type="submit" class="button">Complete Checkout</button>
+            <p class="status-message">Checkout details</p>
+            <button type="submit" class="button">Complete Checkout</button>
           </form>
-          <p id="checkoutMessage" class="status-message" role="status" aria-live="polite"></p>
         </div>
       </div>
     </section>
   </main>
 
-  <aside id="loginModal" class="modal hidden" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+  <aside id="studentModal" class="modal hidden">
     <div class="modal-card">
-      <button id="closeLogin" class="close-button" aria-label="Close">&times;</button>
-      <p class="eyebrow">Student access</p>
-      <h2 id="loginTitle">Student Login</h2>
-      <p class="modal-copy">Use the demo student account to sign in on the main page.</p>
-      <p class="credential-note"><strong>Email:</strong> student@campusfoodlink.com<br><strong>Password:</strong> student123</p>
-      <form id="loginForm" class="login-form">
+      <button class="modal-close" id="closeStudentModal" type="button" aria-label="Close student login">&times;</button>
+      <p class="eyebrow">Student Access</p>
+      <h2>Student Login</h2>
+      <p class="modal-copy">Use the demo student login below to open the account page.</p>
+      <p class="credential-note"><strong>Email:</strong> student@foodfull.com<br><strong>Password:</strong> student123</p>
+      <form id="studentLoginForm" class="modal-form">
         <label>
           <span>Email</span>
-          <input type="email" id="loginEmail" required placeholder="Student email" />
+          <input id="studentEmail" type="email" required placeholder="student@foodfull.com" />
         </label>
         <label>
           <span>Password</span>
-          <input type="password" id="loginPassword" required placeholder="Student password" />
+          <input id="studentPassword" type="password" required placeholder="student123" />
         </label>
-        <button type="submit" class="button">Login</button>
+        <button class="button" type="submit">Login</button>
       </form>
-      <p id="loginStatus" class="status-message" role="status" aria-live="polite"></p>
+      <p id="studentLoginMessage" class="status-message"></p>
     </div>
   </aside>
 
-  <aside id="cartDrawer" class="cart-drawer hidden" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
-    <div class="cart-panel">
-      <div class="cart-header">
-        <h2 id="cartTitle">Your Cart</h2>
-        <button id="closeCart" class="close-button" aria-label="Close">&times;</button>
-      </div>
-      <div id="cartItems" class="cart-items"></div>
-      <div class="cart-footer">
-        <div class="summary-row total">
-          <span>Total</span>
-          <strong id="cartTotal">$0.00</strong>
-        </div>
-        <a href="#checkout" id="goCheckout" class="button">Go to Checkout</a>
-      </div>
-    </div>
-  </aside>
-
-  <aside id="vendorModal" class="modal hidden" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="vendorTitle">
+  <aside id="vendorModal" class="modal hidden">
     <div class="modal-card">
-      <button id="closeVendor" class="close-button" aria-label="Close">&times;</button>
-      <p class="eyebrow">Vendor access</p>
-      <h2 id="vendorTitle">Vendor Login</h2>
-      <p class="modal-copy">Use the demo vendor account to open the Manage Menu page.</p>
-      <p class="credential-note"><strong>Email:</strong> vendor@campusfoodlink.com<br><strong>Password:</strong> vendor123</p>
-      <form id="vendorForm" class="login-form">
+      <button class="modal-close" id="closeVendorModal" type="button" aria-label="Close vendor login">&times;</button>
+      <p class="eyebrow">Vendor Access</p>
+      <h2>Vendor Login</h2>
+      <p class="modal-copy">Use the demo vendor login below to open the manage menu page.</p>
+      <p class="credential-note"><strong>Email:</strong> vendor@foodfull.com<br><strong>Password:</strong> vendor123</p>
+      <form id="vendorLoginForm" class="modal-form">
         <label>
           <span>Email</span>
-          <input type="email" id="vendorEmail" required placeholder="Vendor email" />
+          <input id="vendorEmail" type="email" required placeholder="vendor@foodfull.com" />
         </label>
         <label>
           <span>Password</span>
-          <input type="password" id="vendorPassword" required placeholder="Vendor password" />
+          <input id="vendorPassword" type="password" required placeholder="vendor123" />
         </label>
-        <button type="submit" class="button">Open Manage Menu</button>
+        <button class="button" type="submit">Login</button>
       </form>
-      <p id="vendorStatus" class="status-message" role="status" aria-live="polite"></p>
-    </div>
-  </aside>
-
-  <aside id="reviewThanksModal" class="modal hidden" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="reviewThanksTitle">
-    <div class="modal-card">
-      <button id="closeReviewThanks" class="close-button" aria-label="Close">&times;</button>
-      <p class="eyebrow">Feedback received</p>
-      <h2 id="reviewThanksTitle">Thank you for submitting your feedback.</h2>
-      <p>We appreciate your response.</p>
-      <button id="reviewThanksConfirm" class="button">Close</button>
-    </div>
-  </aside>
-
-  <aside id="checkoutThanksModal" class="modal hidden" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="checkoutThanksTitle">
-    <div class="modal-card">
-      <button id="closeCheckoutThanks" class="close-button" aria-label="Close">&times;</button>
-      <p class="eyebrow">Order confirmed</p>
-      <h2 id="checkoutThanksTitle">Checkout complete.</h2>
-      <p>Please check email for receipt.</p>
-      <div class="hero-actions">
-        <button id="viewOrderStatus" class="button button-outline">View Order Status</button>
-        <button id="checkoutThanksConfirm" class="button">Close</button>
-      </div>
+      <p id="vendorLoginMessage" class="status-message"></p>
     </div>
   </aside>
 

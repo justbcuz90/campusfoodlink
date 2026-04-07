@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Account | CampusFoodLink</title>
-  <meta name="description" content="Student meal plan balance and purchase history for CampusFoodLink." />
+  <title>My Account | FoodFull</title>
+  <meta name="description" content="Student meal plan balance and purchase history for FoodFull." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -13,15 +13,14 @@
 <body>
   <header class="site-header">
     <div class="container nav-wrap">
-      <a class="brand" href="./index.html">CampusFoodLink</a>
-      <nav class="site-nav" aria-label="Primary">
+      <a class="brand" href="./index.html">FoodFull</a>
+      <nav class="site-nav">
         <a href="#accountOverview">Overview</a>
         <a href="#orderStatus">Track Order</a>
         <a href="#purchaseHistory">History</a>
       </nav>
       <div class="nav-actions">
         <a class="button button-outline button-small" href="./index.html">Back to Menu</a>
-        <button id="studentLogout" class="button button-small">Logout</button>
       </div>
     </div>
   </header>
@@ -32,7 +31,7 @@
       <div class="container hero-content">
         <p class="eyebrow">Student portal</p>
         <h1>My Account</h1>
-        <p id="accountIntro" class="hero-copy">Track your meal plan balance and recent purchases.</p>
+        <p class="hero-copy">Track meal plan balance, order progress, and recent purchases in one place.</p>
       </div>
     </section>
 
@@ -41,31 +40,31 @@
         <section class="card-panel account-balance-card">
           <p class="eyebrow">Meal plan</p>
           <h2>Available balance</h2>
-          <p id="mealPlanBalance" class="balance-amount">$50.00</p>
-          <p class="balance-note">This is your demo student meal plan balance.</p>
+          <p class="balance-amount">$50.00</p>
+          <p class="balance-note">Demo balance shown as part of the static account overview.</p>
         </section>
 
         <section class="card-panel account-summary-card">
           <p class="eyebrow">Student details</p>
-          <h2 id="accountName">Student</h2>
+          <h2>Student</h2>
           <div class="status-summary-row">
             <span>Email</span>
-            <strong id="accountEmail">student@campusfoodlink.com</strong>
+            <strong>student@foodfull.com</strong>
           </div>
           <div class="status-summary-row">
             <span>Total purchases</span>
-            <strong id="purchaseCount">0</strong>
+            <strong>4</strong>
           </div>
           <div class="status-summary-row">
             <span>Most recent total</span>
-            <strong id="lastPurchaseTotal">$0.00</strong>
+            <strong>$15.89</strong>
           </div>
         </section>
 
         <section class="card-panel deposit-card">
           <p class="eyebrow">Add funds</p>
           <h2>Make a deposit</h2>
-          <form id="depositForm" class="deposit-form">
+          <form class="deposit-form">
             <div class="deposit-options">
               <label class="deposit-option">
                 <input type="radio" name="depositAmount" value="10" checked />
@@ -86,7 +85,7 @@
             </div>
             <button type="submit" class="button">Complete Deposit</button>
           </form>
-          <p id="depositMessage" class="status-message" role="status" aria-live="polite"></p>
+          <p class="status-message">Static preview only. Deposit actions are not connected.</p>
         </section>
       </div>
     </section>
@@ -96,46 +95,46 @@
         <div class="section-heading center">
           <p class="eyebrow">Order progress</p>
           <h2>Track your order</h2>
-          <p id="orderStatusMessage">No active order yet. Complete a checkout to start tracking.</p>
+          <p>Current sample order: one bowl and one iced coffee scheduled for main-entry pickup.</p>
         </div>
 
         <div class="status-board">
           <div class="status-steps">
-            <article id="statusPending" class="status-step">
+            <article class="status-step is-complete">
               <span class="status-step-number">1</span>
               <h3>Pending</h3>
-              <p>We received your order and are preparing it.</p>
+              <p>We received your order and started preparation.</p>
             </article>
-            <article id="statusReady" class="status-step">
+            <article class="status-step is-current">
               <span class="status-step-number">2</span>
               <h3>Ready</h3>
               <p>Your meal is packed and ready for pickup.</p>
             </article>
-            <article id="statusCompleted" class="status-step">
+            <article class="status-step is-upcoming">
               <span class="status-step-number">3</span>
               <h3>Completed</h3>
-              <p>Your order has been marked complete.</p>
+              <p>Your order will be marked complete after pickup.</p>
             </article>
           </div>
 
           <div class="card-panel status-summary">
             <p class="eyebrow">Latest order</p>
-            <h3 id="orderStatusTitle">No active order yet</h3>
+            <h3>Ready for pickup</h3>
             <div class="status-summary-row">
               <span>Name</span>
-              <strong id="statusCustomer">-</strong>
+              <strong>Student</strong>
             </div>
             <div class="status-summary-row">
               <span>Pickup</span>
-              <strong id="statusLocation">-</strong>
+              <strong>Main entry</strong>
             </div>
             <div class="status-summary-row">
               <span>Items</span>
-              <strong id="statusItems">0</strong>
+              <strong>2</strong>
             </div>
             <div class="status-summary-row">
               <span>Total</span>
-              <strong id="statusTotal">$0.00</strong>
+              <strong>$15.89</strong>
             </div>
           </div>
         </div>
@@ -147,13 +146,58 @@
         <div class="section-heading center">
           <p class="eyebrow">Purchase history</p>
           <h2>Recent orders</h2>
-          <p>Every successful checkout paid with the meal plan appears here.</p>
+          <p>Sample purchase cards are shown below as part of the static account design.</p>
         </div>
-        <div id="purchaseHistoryList" class="purchase-history-list"></div>
+        <div class="purchase-history-list">
+          <details class="purchase-card" open>
+            <summary class="purchase-card-header">
+              <div>
+                <span class="tag">April 7</span>
+                <h3>Lunch Pickup</h3>
+              </div>
+              <strong>$15.89</strong>
+            </summary>
+            <div class="receipt-meta">
+              <span>Main entry</span>
+              <span>2 items</span>
+              <span>Meal plan used</span>
+            </div>
+            <div class="receipt-sheet">
+              <div class="receipt-lines">
+                <div class="receipt-line">
+                  <div>
+                    <strong>Chicken Harvest Bowl</strong>
+                    <p>Fresh lunch bowl with grilled chicken and roasted vegetables.</p>
+                  </div>
+                  <span>$9.95</span>
+                </div>
+                <div class="receipt-line">
+                  <div>
+                    <strong>Vanilla Iced Coffee</strong>
+                    <p>Cold brew with vanilla cream.</p>
+                  </div>
+                  <span>$3.95</span>
+                </div>
+              </div>
+              <div class="receipt-summary">
+                <div class="receipt-total-row">
+                  <span>Subtotal</span>
+                  <strong>$13.90</strong>
+                </div>
+                <div class="receipt-total-row">
+                  <span>Service fee</span>
+                  <strong>$1.99</strong>
+                </div>
+                <div class="receipt-total-row grand-total">
+                  <span>Total</span>
+                  <strong>$15.89</strong>
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
       </div>
     </section>
   </main>
-
-  <script src="./account.js"></script>
 </body>
 </html>
