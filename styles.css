@@ -1,4 +1,5 @@
-
+/* CSS variables store the main colors, shadows, and radius values in one place so it can be reused later.
+   This is needed so the whole site stays visually consistent and makes future edits are easier. */
 :root{
   --bg:#fbf8f3;
   --surface:#ffffff;
@@ -8,14 +9,14 @@
   --line:#e6dac8;
   --accent:#c9a96a;
   --accent-dark:#9d7a3c;
-  --dark:#16120f;
-  --dark-2:#231d17;
   --shadow:0 18px 45px rgba(29,21,13,0.10);
   --shadow-soft:0 12px 30px rgba(29,21,13,0.08);
   --shadow-strong:0 24px 60px rgba(29,21,13,0.16);
   --radius:22px;
 }
 
+/* removes the default spacing in browsers, and font family.
+   This is needed to create without the default spacings getting in the way. A starting point across pages. */
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
@@ -27,22 +28,31 @@ body{
   overflow-x:hidden;
 }
 
+/* defaults for elements. keeps links, images, and form controls visually consistent without recreating over and over.
+   This is needed so common elements behave the same throughout the site. */
 a{text-decoration:none;color:inherit}
 img{display:block;max-width:100%}
-button,input,textarea{font:inherit}
+button,input,textarea,select{font:inherit}
 
+/* transitions add a smoother feel to interactive elements. 
+   This is needed to make hover and focus change as mouse hovers to a subtle effect that looks nice. */
 a,
 button,
 input,
-textarea{
+textarea,
+select{
   transition:color 0.22s ease, background-color 0.22s ease, border-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease, opacity 0.22s ease;
 }
 
+/* The main container centers content and limits line width.
+   This is needed so large screens do not stretch layouts too wide. */
 .container{
   width:min(1120px,calc(100% - 2rem));
   margin:0 auto;
 }
 
+/* Header and navigation styles keep the top bar visible and organize branding, links, and login actions.
+   This is needed because the header is the main navigation point across the project. */
 .site-header{
   position:sticky;
   top:0;
@@ -116,6 +126,8 @@ h1,h2,h3{
   align-items:center;
 }
 
+/* Button variants define the primary, outline, ghost, and compact button styles.
+   This is needed so actions look consistent while still showing different importance levels. */
 .button{
   display:inline-flex;
   align-items:center;
@@ -135,13 +147,6 @@ h1,h2,h3{
   background:var(--accent-dark);
   transform:translateY(-2px);
   box-shadow:0 14px 26px rgba(157,122,60,0.24);
-}
-
-.button:disabled{
-  opacity:0.55;
-  cursor:not-allowed;
-  transform:none;
-  box-shadow:none;
 }
 
 .button-outline{
@@ -169,12 +174,9 @@ h1,h2,h3{
 }
 
 .button:focus-visible,
-.filter-button:focus-visible,
-.close-button:focus-visible,
-.qty-button:focus-visible,
-.remove-link:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
+select:focus-visible,
 .site-nav a:focus-visible,
 .brand:focus-visible{
   outline:3px solid rgba(201,169,106,0.32);
@@ -186,6 +188,8 @@ textarea:focus-visible,
   padding:0.7rem 1rem;
 }
 
+/* The hero section creates the large visual introduction at the top of each page.
+   This is needed to immediately establish the site's branding and first impression. */
 .hero{
   position:relative;
   min-height:86svh;
@@ -216,6 +220,8 @@ textarea:focus-visible,
   animation:fadeUp 0.8s ease both;
 }
 
+/* Shared text helpers control heading scale, eyebrow labels, and hero spacing.
+   This is needed to keep the main content hierarchy readable and consistent. */
 .eyebrow{
   margin:0 0 0.5rem;
   color:var(--accent);
@@ -258,6 +264,8 @@ p{
   margin-top:1.5rem;
 }
 
+/* Section spacing and multi-column layout utilities structure larger content blocks.
+   This is needed so different sections align cleanly without repeating layout code. */
 .section-gap{
   padding:4.5rem 0;
 }
@@ -269,6 +277,8 @@ p{
   align-items:start;
 }
 
+/* Reusable surface styles create the card look used across info panels, menu cards, and other content areas.
+   This is needed to give the interface a unified panel system. */
 .info-panel,
 .card-panel,
 .menu-card,
@@ -293,6 +303,8 @@ p{
   box-shadow:var(--shadow-strong);
 }
 
+/* Small labels and centered section headings help identify categories and introduce sections.
+   This is needed to make scanning content faster for users. */
 .tag{
   display:inline-block;
   margin-bottom:0.4rem;
@@ -309,39 +321,11 @@ p{
   margin:0 auto 2rem;
 }
 
-.filter-bar{
-  display:flex;
-  gap:0.75rem;
-  flex-wrap:wrap;
-  margin-bottom:1.5rem;
-}
-
-.filter-button{
-  min-height:40px;
-  padding:0.7rem 1rem;
-  border-radius:999px;
-  border:1px solid var(--line);
-  background:#fff;
-  color:var(--text);
-  cursor:pointer;
-  box-shadow:var(--shadow-soft);
-}
-
-.filter-button:hover{
-  transform:translateY(-2px);
-  border-color:var(--accent);
-  color:var(--accent-dark);
-}
-
-.filter-button.active{
-  background:var(--accent);
-  border-color:var(--accent);
-  color:#fff;
-}
-
+/* Menu grid and card styles lay out featured food items with images and pricing.
+   This is needed to present menu content in a clean, easy-to-browse format. */
 .menu-grid{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:repeat(3,1fr);
   gap:1.25rem;
 }
 
@@ -383,19 +367,9 @@ p{
   font-weight:700;
 }
 
-.menu-actions{
-  display:flex;
-  gap:0.75rem;
-  margin-top:1rem;
-}
-
-.menu-actions .button,
-.menu-actions .button-outline{
-  flex:1;
-}
-
+/* Review and checkout section wrappers add shared backgrounds and internal spacing.
+   This is needed to visually separate these sections from the rest of the page. */
 .review-section,
-.status-section,
 .checkout-section{
   background:linear-gradient(180deg,#f8f2e8,#fbf8f3);
 }
@@ -410,15 +384,27 @@ p{
   padding:1.5rem;
 }
 
+/* Form label helpers keep review, checkout, and modal forms readable.
+   This is needed so labels and inputs line up consistently in every form. */
+.modal-form label{
+  display:block;
+  margin-bottom:1rem;
+}
+
+.modal-form span{
+  display:block;
+  margin-bottom:0.45rem;
+  font-weight:600;
+  color:var(--text);
+}
+
 .review-form label,
-.login-form label,
 .checkout-form label{
   display:block;
   margin-bottom:1rem;
 }
 
 .review-form span,
-.login-form span,
 .checkout-form span{
   display:block;
   margin-bottom:0.45rem;
@@ -426,6 +412,8 @@ p{
   color:var(--text);
 }
 
+/* Shared form control styles handle the size, border, hover, and focus behavior of inputs.
+   This is needed to make forms feel polished and usable across the site. */
 select,
 input,
 textarea{
@@ -445,14 +433,6 @@ textarea:hover{
   border-color:#d4bea0;
 }
 
-select:disabled,
-input:disabled,
-textarea:disabled{
-  background:#f4efe7;
-  color:#8b7e6b;
-  cursor:not-allowed;
-}
-
 select:focus,
 input:focus,
 textarea:focus{
@@ -466,12 +446,67 @@ textarea{
   resize:vertical;
 }
 
+/* Status text and modal styles power the login popup windows and feedback messages.
+   This is needed for the simple JavaScript login flow on the homepage. */
 .status-message{
   margin-top:0.75rem;
   min-height:1.5rem;
   font-weight:600;
 }
 
+.modal{
+  position:fixed;
+  inset:0;
+  display:grid;
+  place-items:center;
+  padding:1rem;
+  background:rgba(19, 15, 11, 0.58);
+  z-index:60;
+}
+
+.hidden{
+  display:none;
+}
+
+.modal-card{
+  position:relative;
+  width:min(100%, 460px);
+  padding:1.5rem;
+  border:1px solid var(--line);
+  border-radius:24px;
+  background:linear-gradient(180deg, #fff, var(--surface-soft));
+  box-shadow:var(--shadow-strong);
+}
+
+.modal-close{
+  position:absolute;
+  top:0.85rem;
+  right:0.95rem;
+  border:none;
+  background:transparent;
+  color:var(--muted);
+  font-size:2rem;
+  line-height:1;
+  cursor:pointer;
+}
+
+.modal-close:hover{
+  color:var(--accent-dark);
+}
+
+.modal-copy{
+  margin-bottom:0.75rem;
+}
+
+.credential-note{
+  padding:0.9rem 1rem;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:#fff;
+}
+
+/* Order-status board styles build the tracking layout on the account page.
+   This is needed to show order progress in a structured and visually clear way. */
 .status-board{
   display:grid;
   grid-template-columns:1.35fr 0.9fr;
@@ -603,46 +638,14 @@ textarea{
   border-bottom:1px solid var(--line);
 }
 
-.modal-copy{
-  margin-bottom:0.75rem;
-}
-
-.credential-note{
-  padding:0.9rem 1rem;
-  border:1px solid var(--line);
-  border-radius:16px;
-  background:linear-gradient(180deg,#fff,var(--surface-soft));
-}
-
-.review-list{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:1rem;
-  margin-top:2rem;
-}
-
-.review-card{
-  padding:1.2rem;
-}
-
-.review-section .card-panel:hover,
-.review-section .review-card:hover{
-  transform:none;
-  box-shadow:var(--shadow);
-}
-
-.review-card small{
-  color:var(--muted);
-}
-
-.checkout-items,
-.cart-items{
+/* Checkout item and summary styles organize selected food items and total pricing.
+   This is needed to keep the order review section readable at a glance. */
+.checkout-items{
   display:grid;
   gap:0.85rem;
 }
 
-.checkout-item,
-.cart-item{
+.checkout-item{
   display:grid;
   grid-template-columns:80px 1fr auto;
   gap:0.85rem;
@@ -654,15 +657,13 @@ textarea{
   transition:transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
 }
 
-.checkout-item:hover,
-.cart-item:hover{
+.checkout-item:hover{
   transform:translateY(-2px);
   border-color:#d9c19d;
   box-shadow:var(--shadow-soft);
 }
 
-.checkout-item img,
-.cart-item img{
+.checkout-item img{
   width:80px;
   height:80px;
   object-fit:cover;
@@ -686,96 +687,8 @@ textarea{
   margin-top:1.25rem;
 }
 
-.modal,
-.cart-drawer{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.52);
-  display:grid;
-  place-items:center;
-  z-index:40;
-}
-
-.hidden{
-  display:none;
-}
-
-.modal-card,
-.cart-panel{
-  width:min(100% - 1.5rem, 520px);
-  background:#fff;
-  border-radius:24px;
-  padding:1.4rem;
-  box-shadow:var(--shadow);
-  animation:modalIn 0.28s ease both;
-}
-
-.cart-panel{
-  width:min(100% - 1rem, 560px);
-  max-height:85svh;
-  overflow:auto;
-}
-
-.close-button{
-  border:none;
-  background:transparent;
-  font-size:2rem;
-  line-height:1;
-  cursor:pointer;
-  border-radius:999px;
-  padding:0.15rem 0.45rem;
-}
-
-.close-button:hover{
-  background:rgba(201,169,106,0.14);
-  color:var(--accent-dark);
-  transform:rotate(90deg);
-}
-
-.cart-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:1rem;
-}
-
-.cart-footer{
-  margin-top:1rem;
-}
-
-.qty-controls{
-  display:flex;
-  align-items:center;
-  gap:0.4rem;
-}
-
-.qty-button{
-  width:32px;
-  height:32px;
-  border-radius:50%;
-  border:1px solid var(--line);
-  background:#fff;
-  cursor:pointer;
-}
-
-.qty-button:hover{
-  border-color:var(--accent);
-  color:var(--accent-dark);
-  transform:translateY(-1px);
-}
-
-.remove-link{
-  color:#b14a36;
-  background:none;
-  border:none;
-  cursor:pointer;
-  padding:0;
-}
-
-.remove-link:hover{
-  color:#8f2f1b;
-}
-
+/* Page-specific hero backgrounds give the vendor and account pages their own identity.
+   This is needed so the secondary pages feel distinct while staying in the same design system. */
 .manage-hero{
   min-height:52svh;
   background:
@@ -792,12 +705,13 @@ textarea{
     linear-gradient(45deg, #29405d, #1b2a3d 58%, #121923);
 }
 
+/* Account and manage page layout utilities arrange dashboard cards and two-panel sections.
+   This is needed because those pages use denser layouts than the homepage. */
 .account-section,
 .manage-section{
   background:linear-gradient(180deg,#f7f1e8,#fbf8f3);
 }
 
-.account-layout,
 .manage-layout{
   display:grid;
   grid-template-columns:1.2fr 0.95fr;
@@ -813,15 +727,15 @@ textarea{
 }
 
 .account-balance-card,
-.account-summary-card{
+.account-summary-card,
+.deposit-card,
+.manage-list-panel,
+.manage-form-panel{
   padding:1.5rem;
 }
 
-.deposit-card{
-  height:100%;
-  padding:1.5rem;
-}
-
+/* Balance, deposit, and shared dashboard list styles support the student account view.
+   This is needed to present balances, history, and options in a compact card layout. */
 .balance-amount{
   margin:0.2rem 0 0.6rem;
   color:var(--text);
@@ -834,16 +748,15 @@ textarea{
   margin:0;
 }
 
-.purchase-history-list{
-  display:grid;
-  gap:1rem;
-}
-
+.purchase-history-list,
+.manage-menu-grid,
 .deposit-form{
   display:grid;
   gap:1rem;
 }
 
+/* Deposit option styling turns radio inputs into larger selectable cards.
+   This is needed to make amount choices easier to notice and click. */
 .deposit-options{
   display:grid;
   grid-template-columns:repeat(4, minmax(0, 1fr));
@@ -872,13 +785,6 @@ textarea{
   box-shadow:var(--shadow-soft);
   font-weight:700;
   cursor:pointer;
-  transition:transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease, color 0.22s ease;
-}
-
-.deposit-option span:hover{
-  transform:translateY(-2px);
-  border-color:var(--accent);
-  color:var(--accent-dark);
 }
 
 .deposit-option input:checked + span{
@@ -888,6 +794,8 @@ textarea{
   box-shadow:0 14px 26px rgba(157,122,60,0.18);
 }
 
+/* Purchase history styles create the expandable receipt cards on the account page.
+   This is needed so past orders can show more detail without taking too much space. */
 .purchase-card{
   padding:1.3rem 1.4rem;
   border:1px solid var(--line);
@@ -1009,22 +917,14 @@ textarea{
   font-size:1.05rem;
 }
 
-.manage-list-panel,
-.manage-form-panel{
-  padding:1.5rem;
-}
-
+/* Vendor management styles organize menu items, edit previews, and form actions.
+   This is needed to keep the manage-menu page readable and easy to scan. */
 .manage-header{
   display:flex;
   justify-content:space-between;
   gap:1rem;
   align-items:flex-start;
   margin-bottom:1.5rem;
-}
-
-.manage-menu-grid{
-  display:grid;
-  gap:1rem;
 }
 
 .manage-item-card{
@@ -1070,6 +970,8 @@ textarea{
   margin-top:1rem;
 }
 
+/* Image preview styles keep sample food images neatly framed in the vendor form area.
+   This is needed so preview content matches the rest of the card-based design. */
 .image-preview-wrap{
   margin-top:0.5rem;
 }
@@ -1084,6 +986,8 @@ textarea{
   box-shadow:var(--shadow-soft);
 }
 
+/* Keyframes define the small motion effects used in hero entry and status highlights.
+   This is needed to support the few animated elements used across the design. */
 @keyframes fadeUp{
   from{
     opacity:0;
@@ -1092,17 +996,6 @@ textarea{
   to{
     opacity:1;
     transform:translateY(0);
-  }
-}
-
-@keyframes modalIn{
-  from{
-    opacity:0;
-    transform:translateY(12px) scale(0.98);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0) scale(1);
   }
 }
 
@@ -1126,15 +1019,15 @@ textarea{
   }
 }
 
+/* Responsive rules adapt grids, cards, and navigation for tablet and phone screens.
+   This is needed so the site remains usable on smaller devices. */
 @media (max-width: 980px){
   .site-nav{display:none}
   .menu-grid{grid-template-columns:repeat(2,1fr)}
-  .review-list{grid-template-columns:repeat(2,1fr)}
   .two-col{grid-template-columns:1fr}
   .status-board{grid-template-columns:1fr}
   .status-steps{grid-template-columns:1fr}
   .status-steps::before{display:none}
-  .account-layout{grid-template-columns:1fr}
   .account-grid{grid-template-columns:1fr 1fr}
   .manage-layout{grid-template-columns:1fr}
 }
@@ -1147,9 +1040,7 @@ textarea{
   .hero-content{padding:4rem 0}
   h1{max-width:8ch}
   .menu-grid{grid-template-columns:1fr}
-  .review-list{grid-template-columns:1fr}
-  .checkout-item,.cart-item{grid-template-columns:64px 1fr}
-  .checkout-item .item-side,.cart-item .item-side{grid-column:2}
+  .checkout-item{grid-template-columns:64px 1fr}
   .account-grid{grid-template-columns:1fr}
   .deposit-options{grid-template-columns:repeat(2, minmax(0, 1fr))}
   .purchase-card-header{flex-direction:column}
@@ -1157,4 +1048,5 @@ textarea{
   .manage-header{flex-direction:column}
   .manage-item-card{grid-template-columns:1fr}
   .manage-item-card img{width:100%;height:auto;aspect-ratio:4/3}
+  .modal-card{padding:1.25rem}
 }
